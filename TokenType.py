@@ -20,9 +20,11 @@ class TokenType(Enum):
     INT_ = 17
     SUP = 18
     INF = 19
+    STRING_ = 20
 KEYWORDS = {
     "exit": TokenType.EXIT,
     "int": TokenType.INT_,
+    "string": TokenType.STRING_,
     "if": TokenType.IF_,
     "elif": TokenType.ELIF_,
     "else": TokenType.ELSE_,
