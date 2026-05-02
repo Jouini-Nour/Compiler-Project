@@ -1,0 +1,3 @@
+string name = "Jouini";
+int val = 10;
+int error = name - val; // Should raise "Operation - not supported between string and int"

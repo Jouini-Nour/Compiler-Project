@@ -1,0 +1,4 @@
+if (5 > 2) {
+    int secret = 100;
+}
+int result = secret + 10; // Should raise "Undeclared Variable"

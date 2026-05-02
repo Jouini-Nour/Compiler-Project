@@ -1,0 +1,6 @@
+int x = 10;
+if (x > 5) {
+    int y = 20;
+    x = x + y; // Should work
+}
+x = y + 5; // SHOULD FAIL (y is out of scope)

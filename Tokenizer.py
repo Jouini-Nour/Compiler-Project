@@ -62,6 +62,24 @@ class Lexer:
                         break
                     self.consume()
                 continue
+            # STRINGS
+            if self.peek() == '"':
+                self.consume()  # Consume the opening "
+                while self.peek() and self.peek() != '"':
+                    # Handle newlines inside strings if your language allows it, 
+                    # otherwise raise an error or increment line_count.
+                    if self.peek() == '\n':
+                        line_count += 1
+                    buffer.append(self.consume())
+    
+                if self.peek() is None:
+                    raise ValueError(f"Lexical Error: Unterminated string at line {line_count}")
+        
+                self.consume()  # Consume the closing "
+    
+                tokens.append(Token(TokenType.STRING_, line_count, "".join(buffer)))
+                buffer.clear()
+                continue
 
             # Single Character Tokens
             char = self.consume()

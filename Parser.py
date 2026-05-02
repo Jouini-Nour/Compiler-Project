@@ -165,6 +165,10 @@ class Parser:
         if tok.type == TokenType.INT_LIT:
             self.consume()
             return IntLit(int(tok.value))
+        
+        if tok.type == TokenType.STRING_:
+            self.consume()
+            return StringLit(tok.value)
 
         if tok.type == TokenType.IDENT:
             self.consume()
